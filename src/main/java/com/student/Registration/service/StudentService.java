@@ -1,6 +1,5 @@
 package com.student.Registration.service;
 
-import java.util.Optional;
 
 import com.student.Registration.model.Student;
 
@@ -12,7 +11,7 @@ public interface StudentService {
 	
 	public void addStudent(Student student);
 	
-	public Optional<Student> getById(long id);
+	public Student getStudentById(long id);
 	
 
 }

@@ -27,17 +27,31 @@ public class StudentServiceImpl implements StudentService{
 	public void addStudent(Student student){
 		studentRepository.save(student);
 	}
-
-	@Override
-	public Optional<Student> getById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+/*
+  @Override
+	public Iterable<Product> addProduct(Product product) {
+		productRepository.save(product);
+		Iterable<Product> products = productRepository.findAll();
+		return products;
 	}
 	
-//	@Override
-//	public Optional<Student> getById(long id) {
-//		Optional<Student> st = studentRepository.findById(id);
-//		return st;
-//	}
+	@Override
+	public void addEmployee(Employee employee) {
+		employeeRepository.save(employee);
+	}
+   
+ */
+	@Override 
+	public Student getStudentById(long id) {       // this is from optional method
+		Optional<Student> stdnt = studentRepository.findById(id);
+		System.out.println("student : " + stdnt.get());
+		
+		if(stdnt.isPresent()) {
+			Student st = stdnt.get();
+			return st;
+		}
+		return stdnt.orElse(null);
+	}
+	
 
 }
